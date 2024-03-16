@@ -1,4 +1,5 @@
 
+// Listening Buttons
 var drums = document.querySelectorAll(".drum")
 for (let i=0; i<drums.length; i++)
 {
@@ -7,9 +8,12 @@ for (let i=0; i<drums.length; i++)
     })
 }
 
+
+// Listening Keyboard
 document.addEventListener("keydown", function(event){
     keyPress(event.key);
 })
+
 
 function keyPress(letter)
 {
