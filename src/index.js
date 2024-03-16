@@ -5,6 +5,7 @@ for (let i=0; i<drums.length; i++)
 {
     drums[i].addEventListener("click", function (){
         keyPress(this.innerHTML);
+        buttonAnimate(this.innerHTML);
     })
 }
 
@@ -12,12 +13,23 @@ for (let i=0; i<drums.length; i++)
 // Listening Keyboard
 document.addEventListener("keydown", function(event){
     keyPress(event.key);
+    buttonAnimate(event.key)
 })
 
 
-function keyPress(letter)
+function buttonAnimate(currentKey)
 {
-    switch (letter) {
+    var button = document.querySelector("." + currentKey);
+    button.classList.add("pressed");
+    setTimeout(function(){
+        button.classList.remove("pressed");
+    }, 150)
+}
+
+
+function keyPress(currentKey)
+{
+    switch (currentKey) {
         case "w":
             playSound("tom-1");
             break;
